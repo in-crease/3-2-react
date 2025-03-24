@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import hero from "../assets/hero.svg"
 import coin from "../assets/coin.svg"
 
+
 const Earn = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(5000);
+  const [earnPerTap, setEarnPerTap] = useState(1);
 
   function click() {
-    setCount(count + 1);
+    setCount(count + earnPerTap);
+  }
+
+  function buyUpgrade(price, bonus) {
+    if (count >= price) {
+      setCount(count - price);
+      setEarnPerTap(earnPerTap + bonus);
+    }
   }
   return (
     <div className='bg-[#2C2F35] w-[500px] rounded-2xl p-[30px]'>
@@ -36,8 +45,8 @@ const Earn = () => {
             <img className='w-[30px]' src={coin} alt="" />
         </div>
         <div className='flex items-center'>
-            <h1 className='text-white'>-1000</h1>
-            <img className='w-[30px]' src={coin} alt="" />
+        <button onClick={() => buyUpgrade(1000,2)} className='text-white cursor-pointer'>-1000</button>
+        <img className='w-[30px]' src={coin} alt="" />
         </div>
        </div>
       </div>
@@ -49,7 +58,7 @@ const Earn = () => {
             <img className='w-[30px]' src={coin} alt="" />
         </div>
         <div className='flex items-center'>
-            <h1 className='text-white'>-2500</h1>
+           <button onClick={() => buyUpgrade(2500,3)} className='text-white cursor-pointer'>-2500</button>
             <img className='w-[30px]' src={coin} alt="" />
         </div>
        </div>
@@ -62,8 +71,8 @@ const Earn = () => {
             <img className='w-[30px]' src={coin} alt="" />
         </div>
         <div className='flex items-center'>
-            <h1 className='text-white'>-6000</h1>
-            <img className='w-[30px]' src={coin} alt="" />
+        <button onClick={() => buyUpgrade(6000,4)}  className='text-white cursor-pointer'>-6000</button>
+        <img className='w-[30px]' src={coin} alt="" />
         </div>
        </div>
       </div>

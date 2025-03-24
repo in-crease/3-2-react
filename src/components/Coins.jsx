@@ -6,10 +6,16 @@ import x10 from "../assets/x10.svg"
 
 
 const Earn = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(5000);
 
   function click() {
     setCount(count + 1);
+  }
+
+  function buyItem(price) {
+    if (count >= price) {
+      setCount(count - price);
+    }
   }
   return (
     <div className='bg-[#2C2F35] w-[500px] rounded-2xl p-[30px]'>
@@ -42,8 +48,9 @@ const Earn = () => {
         <div className='flex justify-center items-center gap-[30px]'>
                 <h1 className='text-white'>lvl 1</h1>
                 <div className='flex justify-center items-center'>
-                    <img className='w-[30px]' src={coin} alt="" />
-                    <h1 className='text-white'>192</h1>
+                <button onClick={() => buyItem(192)} className='flex justify-between bg-[#3C4047] p-2 rounded-lg text-white'>
+            <img className='w-[20px]' src={coin} alt="coin" /> 192
+          </button>
                 </div>
             </div>
       </div>
@@ -58,8 +65,9 @@ const Earn = () => {
         <div className='flex justify-center items-center gap-[30px]'>
                 <h1 className='text-white'>lvl 1</h1>
                 <div className='flex justify-center items-center'>
-                    <img className='w-[30px]' src={coin} alt="" />
-                    <h1 className='text-white'>2.3K</h1>
+                <button onClick={() => buyItem(2300)} className='flex justify-between bg-[#3C4047] p-2 rounded-lg text-white'>
+                      <img className='w-[20px]' src={coin} alt="coin" /> 2.3K
+          </button>
                 </div>
             </div>
       </div>
@@ -74,8 +82,9 @@ const Earn = () => {
         <div className='flex justify-center items-center gap-[30px]'>
                 <h1 className='text-white'>lvl 1</h1>
                 <div className='flex justify-center items-center'>
-                    <img className='w-[30px]' src={coin} alt="" />
-                    <h1 className='text-white'>11.2K</h1>
+                <button onClick={() => buyItem(11200)} className='flex justify-between bg-[#3C4047] p-2 rounded-lg text-white'>
+            <img className='w-[20px]' src={coin} alt="coin" /> 11.2K
+          </button>
                 </div>
             </div>
       </div>

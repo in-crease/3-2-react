@@ -3,7 +3,7 @@ import hero from "../assets/hero.svg"
 import coin from "../assets/coin.svg"
 
 const Earn = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(5000);
 
   function click() {
     setCount(count + 1);
